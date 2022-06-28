@@ -66,14 +66,14 @@ class Resolver
     /**
      * Automatically call a function with all parameters injected from the container.
      *
-     * @param array|callable $function - The function name or an array class,function name.
+     * @param array|callable|string $function - The function name or an array class,function name.
      * @param array $parameters - List of Hard coded values.
      *
      * @throws ReflectionException If a parameter cannot be resolved.
      */
     public function call($function, array $parameters = [])
     {
-        // Check if callabled
+        // Check if callable
         if (is_callable($function)) {
             if (is_array($function)) {
                 $reflection = new ReflectionMethod(...$function);
