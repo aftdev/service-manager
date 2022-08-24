@@ -96,12 +96,8 @@ abstract class AbstractManager extends LaminasPluginManager
 
     /**
      * Return true if the manager can create the service.
-     *
-     * @param string $name
-     *
-     * @return bool
      */
-    public function has($name)
+    public function has(string $name): bool
     {
         return parent::has($name) || $this->hasPlugin($name);
     }

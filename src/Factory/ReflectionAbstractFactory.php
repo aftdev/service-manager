@@ -17,7 +17,7 @@ class ReflectionAbstractFactory implements AbstractFactoryInterface
         $resolver = $container->has(Resolver::class) ? $container->get(Resolver::class) : new Resolver($container);
 
         try {
-            return $resolver->resolveClass($requestedName, ($options ?? []));
+            return $resolver->resolveClass($requestedName, $options ?? []);
         } catch (ReflectionException $e) {
             throw new ServiceNotFoundException(
                 sprintf(
